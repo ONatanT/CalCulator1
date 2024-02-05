@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/black"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -18,9 +17,9 @@
             android:id="@+id/textViewSolution"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="0.7"
-            android:layout_above="@+id/textViewResult"
+            android:layout_above="@id/textViewResult"
             android:layout_margin="16dp"
+            android:layout_weight="0.7"
             android:text="0"
             android:textSize="32dp" />
 
@@ -45,7 +44,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
-            android:background="@drawable/designacbutton"
             android:layout_weight="0.5"
             android:onClick="funcButton"
             android:text="AC"
