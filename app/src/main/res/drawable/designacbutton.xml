@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Set the shape of the drawable (rectangle in this case) -->
     <solid android:color="#4D4646"/> <!-- Set the RGB color using hexadecimal notation -->
