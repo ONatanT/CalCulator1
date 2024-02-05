@@ -65,8 +65,18 @@ public class MainActivity extends AppCompatActivity {
 //            return "Error";
 //        }
 //    }
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
 
-    // 1. Get the number from the button and store it in a variable
+    <gradient android:startColor="#0147FF"
+    android:centerColor="#D5BD61"
+    android:endColor="#05000000"
+    android:angle="225"/>
+
+    <corners android:radius="250dp"/>
+
+    <stroke android:width="5dp" android:color="#000000"/>
+</shape>    // 1. Get the number from the button and store it in a variable
     // 2. Display the number on the screen (TextView)
     // 3. Get the operator from the button and store it in a variable
     // 4. Get the second number from the button and store it in a variable
