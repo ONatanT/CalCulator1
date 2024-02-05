@@ -44,47 +44,98 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/buttonOne"
+            android:id="@+id/buttonAC"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_weight="0.5"
             android:background="@drawable/designbutton"
             android:onClick="funcButton"
-            android:text="1"
+            android:text="Ac"
             android:textSize="24sp" />
 
         <Button
-            android:id="@+id/buttonTwo"
+            android:id="@+id/buttonPlusMinus"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_weight="0.5"
             android:background="@drawable/designbutton"
             android:onClick="funcButton"
-            android:text="2"
+            android:text="+/-"
             android:textSize="24sp" />
 
         <Button
-            android:id="@+id/buttonThree"
+            android:id="@+id/buttonPrecent"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_weight="0.5"
             android:background="@drawable/designbutton"
             android:onClick="funcButton"
-            android:text="3"
+            android:text="%"
             android:textSize="24sp" />
 
         <Button
-            android:id="@+id/buttonPlus"
+            android:id="@+id/buttonDivide"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_weight="0.5"
             android:background="@drawable/designbutton"
             android:onClick="funcButton"
-            android:text="+"
+            android:text="/"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonSeven"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/designbutton"
+            android:onClick="funcButton"
+            android:text="7"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/buttonEight"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/designbutton"
+            android:onClick="funcButton"
+            android:text="8"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/buttonNine"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/designbutton"
+            android:onClick="funcButton"
+            android:text="9"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/buttonMultiply"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/designbutton"
+            android:onClick="funcButton"
+            android:text="x"
             android:textSize="24sp" />
     </LinearLayout>
 
@@ -136,57 +187,6 @@
             android:background="@drawable/designbutton"
             android:onClick="funcButton"
             android:text="-"
-            android:textSize="24sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/buttonSeven"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:layout_weight="0.5"
-            android:background="@drawable/designbutton"
-            android:onClick="funcButton"
-            android:text="7"
-            android:textSize="24sp" />
-
-        <Button
-            android:id="@+id/buttonEight"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:layout_weight="0.5"
-            android:background="@drawable/designbutton"
-            android:onClick="funcButton"
-            android:text="8"
-            android:textSize="24sp" />
-
-        <Button
-            android:id="@+id/buttonNine"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:layout_weight="0.5"
-            android:background="@drawable/designbutton"
-            android:onClick="funcButton"
-            android:text="9"
-            android:textSize="24sp" />
-
-        <Button
-            android:id="@+id/buttonDivide"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:layout_weight="0.5"
-            android:background="@drawable/designbutton"
-            android:onClick="funcButton"
-            android:text="/"
             android:textSize="24dp" />
     </LinearLayout>
 
@@ -197,15 +197,55 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/buttonDot"
+            android:id="@+id/buttonOne"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_weight="0.5"
             android:background="@drawable/designbutton"
             android:onClick="funcButton"
-            android:text="."
+            android:text="1"
             android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/buttonTwo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/designbutton"
+            android:onClick="funcButton"
+            android:text="2"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/buttonThree"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/designbutton"
+            android:onClick="funcButton"
+            android:text="3"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/buttonPlus"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/designbutton"
+            android:onClick="funcButton"
+            android:text="+"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/buttonZero"
@@ -219,6 +259,17 @@
             android:textSize="24sp" />
 
         <Button
+            android:id="@+id/buttonDot"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/designbutton"
+            android:onClick="funcButton"
+            android:text="."
+            android:textSize="24sp" />
+
+        <Button
             android:id="@+id/buttonEqual"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -229,16 +280,6 @@
             android:text="="
             android:textSize="24sp" />
 
-        <Button
-            android:id="@+id/buttonMultiply"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:layout_weight="0.5"
-            android:background="@drawable/designbutton"
-            android:onClick="funcButton"
-            android:text="x"
-            android:textSize="24sp" />
     </LinearLayout>
 
 </LinearLayout>
