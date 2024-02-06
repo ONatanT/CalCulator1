@@ -46,6 +46,7 @@
             android:background="@drawable/designacbutton"
             android:onClick="funcButton"
             android:text="AC"
+            android:textColor="@color/black"
             android:textSize="30dp" />
 
         <Button
@@ -56,7 +57,8 @@
             android:layout_weight="0.25"
             android:background="@drawable/designacbutton"
             android:onClick="funcButton"
-            android:text="+/-"
+            android:text="±"
+            android:textColor="@color/black"
             android:textSize="40dp" />
 
         <Button
@@ -68,6 +70,7 @@
             android:background="@drawable/designacbutton"
             android:onClick="funcButton"
             android:text="%"
+            android:textColor="@color/black"
             android:textSize="40dp" />
 
         <Button
@@ -79,6 +82,7 @@
             android:background="@drawable/designoperatorbutton"
             android:onClick="funcButton"
             android:text="/"
+            android:textColor="@color/white"
             android:textSize="40dp" />
     </LinearLayout>
 
@@ -97,6 +101,7 @@
             android:background="@drawable/designnumbutton"
             android:onClick="funcButton"
             android:text="7"
+            android:textColor="@color/white"
             android:textSize="40dp" />
 
         <Button
@@ -108,6 +113,7 @@
             android:background="@drawable/designnumbutton"
             android:onClick="funcButton"
             android:text="8"
+            android:textColor="@color/white"
             android:textSize="40dp" />
 
         <Button
@@ -119,6 +125,7 @@
             android:background="@drawable/designnumbutton"
             android:onClick="funcButton"
             android:text="9"
+            android:textColor="@color/white"
             android:textSize="40dp" />
 
         <Button
@@ -130,6 +137,7 @@
             android:background="@drawable/designoperatorbutton"
             android:onClick="funcButton"
             android:text="x"
+            android:textColor="@color/white"
             android:textSize="40dp" />
     </LinearLayout>
 
@@ -148,6 +156,7 @@
             android:background="@drawable/designnumbutton"
             android:onClick="funcButton"
             android:text="4"
+            android:textColor="@color/white"
             android:textSize="40dp" />
 
         <Button
@@ -159,6 +168,7 @@
             android:background="@drawable/designnumbutton"
             android:onClick="funcButton"
             android:text="5"
+            android:textColor="@color/white"
             android:textSize="40dp" />
 
         <Button
@@ -170,6 +180,7 @@
             android:background="@drawable/designnumbutton"
             android:onClick="funcButton"
             android:text="6"
+            android:textColor="@color/white"
             android:textSize="40dp" />
 
         <Button
@@ -181,6 +192,7 @@
             android:background="@drawable/designoperatorbutton"
             android:onClick="funcButton"
             android:text="-"
+            android:textColor="@color/white"
             android:textSize="40dp" />
     </LinearLayout>
 
@@ -199,6 +211,7 @@
             android:background="@drawable/designnumbutton"
             android:onClick="funcButton"
             android:text="1"
+            android:textColor="@color/white"
             android:textSize="40dp" />
 
         <Button
@@ -210,6 +223,7 @@
             android:background="@drawable/designnumbutton"
             android:onClick="funcButton"
             android:text="2"
+            android:textColor="@color/white"
             android:textSize="40dp" />
 
         <Button
@@ -221,6 +235,7 @@
             android:background="@drawable/designnumbutton"
             android:onClick="funcButton"
             android:text="3"
+            android:textColor="@color/white"
             android:textSize="40dp" />
 
         <Button
@@ -232,6 +247,7 @@
             android:background="@drawable/designoperatorbutton"
             android:onClick="funcButton"
             android:text="+"
+            android:textColor="@color/white"
             android:textSize="40dp" />
     </LinearLayout>
 
@@ -250,6 +266,7 @@
             android:background="@drawable/designnumbutton"
             android:onClick="funcButton"
             android:text="0"
+            android:textColor="@color/white"
             android:textSize="40dp" />
 
         <Button
@@ -261,6 +278,7 @@
             android:background="@drawable/designnumbutton"
             android:onClick="funcButton"
             android:text="."
+            android:textColor="@color/white"
             android:textSize="40dp" />
 
         <Button
@@ -272,6 +290,8 @@
             android:background="@drawable/designoperatorbutton"
             android:onClick="funcButton"
             android:text="="
+            android:textColor="@color/white"
+
             android:textSize="40dp" />
 
     </LinearLayout>
