@@ -9,36 +9,45 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView result, solution;
-    int num1;
-    int num2;
-    char ch;
-    Button buttonAC;
-    Button plusMinus;
+    private TextView result, input;
+    private Button[] numberButtons;
+    private Button buttonAC, buttonPlusMinus, buttonPrecent, buttonPlus, buttonMinus, buttonMultiply, buttonDivide, buttonEqual;
+    private int firstOperand = 0, secondOperand = 0;
+    private String operation = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
         super.onCreate(savedInstanceState);
 
-        solution = findViewById(R.id.textViewSolution);
+        input = findViewById(R.id.textViewSolution);
 
         result = findViewById(R.id.textViewResult);
+
+        numberButtons = new Button[10];
+        for (int i = 0; i < numberButtons.length; i++) {
+            String buttonID = "button" + i;
+            int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
+            numberButtons[i] = findViewById(resID);
+            numberButtons[i].setOnClickListener(v -> input.append(((Button) v).getText().toString()));
+        }
+
+        buttonPlus = findViewById(R.id.buttonPlus);
+        buttonMinus = findViewById(R.id.buttonMinus);
+        buttonMultiply = findViewById(R.id.buttonMultiply);
+        buttonDivide = findViewById(R.id.buttonDivide);
 
         //System.out.println("Hey im Here"+result);
     }
 
     public void funcButton(View view) {
-        String solutionText = solution.getText().toString();
+        String solutionText = input.getText().toString();
         Button button = (Button) view;
-        buttonAC = findViewById(R.id.buttonAC);
         String buttonText = button.getText().toString();
-        String dataToCalculate = solution.getText().toString();
-//        if (buttonText.equals("AC")) {
-//            solution.setText("");
-//            result.setText("0");
-//            return;
-//        }
+        String dataToCalculate = input.getText().toString();
+        buttonAC = findViewById(R.id.buttonAC);
+        buttonPlusMinus = findViewById(R.id.buttonPlusMinus);
         buttonAC.setOnClickListener(new View.OnClickListener() {
             @Override
 
@@ -46,20 +55,48 @@ public class MainActivity extends AppCompatActivity {
                 buttonAC.setText("C");
             }
         });
+        buttonPlusMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+
+            public void onClick(View v) {
+                if (solutionText.equals("-")){
+                    buttonPlusMinus.setText("+");
+                }
+                else{
+                buttonPlusMinus.setText("-");
+            }
+        }
+        });
+        if (buttonText.equals("C")) {
+            input.setText("");
+            result.setText("0");
+        }
+        if (!solutionText.equals("-")){
+            buttonPlusMinus.setText("+");
+        }
+        else if (solutionText.equals("-")){
+            buttonPlusMinus.setText("-");
+        }
         if (!solutionText.equals("0")){
             buttonAC.setText("C");
         }
         if (buttonText.equals("=")) {
-            solution.setText(result.getText());
+            input.setText(result.getText());
             return;
+        }
+        if (buttonText.equals("+")) {
+            firstOperand = Integer.parseInt(solutionText);
+            System.out.println("num1: " + firstOperand);
+            input.setText("");
         }
         if (buttonText.equals("C")) {
             dataToCalculate = dataToCalculate.substring(0, dataToCalculate.length() - 1);
+            return;
         } else {
             dataToCalculate += buttonText;
         }
 
-        solution.setText(dataToCalculate);
+        input.setText(dataToCalculate);
         result.append("");
 //        String str = getResult(dataToCalculate);
 //        result.setText(str);
