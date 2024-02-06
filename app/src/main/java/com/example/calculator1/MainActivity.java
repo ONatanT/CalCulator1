@@ -2,9 +2,7 @@ package com.example.calculator1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.view.TextureView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,7 +13,9 @@ public class MainActivity extends AppCompatActivity {
     int num1;
     int num2;
     char ch;
-    Button myButton;
+    Button buttonAC;
+    Button plusMinus;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
@@ -24,26 +24,30 @@ public class MainActivity extends AppCompatActivity {
         solution = findViewById(R.id.textViewSolution);
 
         result = findViewById(R.id.textViewResult);
-        myButton = findViewById(R.id.buttonAC); // replace with your button's id
 
-        myButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-
-            public void onClick(View v) {
-                myButton.setText("C");
-            }
-        });
         //System.out.println("Hey im Here"+result);
     }
 
     public void funcButton(View view) {
+        String solutionText = solution.getText().toString();
         Button button = (Button) view;
+        buttonAC = findViewById(R.id.buttonAC);
         String buttonText = button.getText().toString();
         String dataToCalculate = solution.getText().toString();
-        if (buttonText.equals("AC")) {
-            solution.setText("");
-            result.setText("0");
-            return;
+//        if (buttonText.equals("AC")) {
+//            solution.setText("");
+//            result.setText("0");
+//            return;
+//        }
+        buttonAC.setOnClickListener(new View.OnClickListener() {
+            @Override
+
+            public void onClick(View v) {
+                buttonAC.setText("C");
+            }
+        });
+        if (!solutionText.equals("0")){
+            buttonAC.setText("C");
         }
         if (buttonText.equals("=")) {
             solution.setText(result.getText());
