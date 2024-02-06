@@ -18,20 +18,20 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_main);
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
         input = findViewById(R.id.textViewSolution);
 
         result = findViewById(R.id.textViewResult);
 
-        numberButtons = new Button[10];
-        for (int i = 0; i < numberButtons.length; i++) {
-            String buttonID = "button" + i;
-            int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
-            numberButtons[i] = findViewById(resID);
-            numberButtons[i].setOnClickListener(v -> input.append(((Button) v).getText().toString()));
-        }
+//        numberButtons = new Button[10];
+//        for (int i = 0; i < numberButtons.length; i++) {
+//            String buttonID = "button" + i;
+//            int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
+//            numberButtons[i] = findViewById(resID);
+//            numberButtons[i].setOnClickListener(v -> input.append(((Button) v).getText().toString()));
+//        }
 
         buttonPlus = findViewById(R.id.buttonPlus);
         buttonMinus = findViewById(R.id.buttonMinus);
@@ -46,37 +46,37 @@ public class MainActivity extends AppCompatActivity {
         Button button = (Button) view;
         String buttonText = button.getText().toString();
         String dataToCalculate = input.getText().toString();
-        buttonAC = findViewById(R.id.buttonAC);
-        buttonPlusMinus = findViewById(R.id.buttonPlusMinus);
-        buttonAC.setOnClickListener(new View.OnClickListener() {
-            @Override
-
-            public void onClick(View v) {
-                buttonAC.setText("C");
-            }
-        });
-        buttonPlusMinus.setOnClickListener(new View.OnClickListener() {
-            @Override
-
-            public void onClick(View v) {
-                if (solutionText.equals("-")){
-                    buttonPlusMinus.setText("+");
-                }
-                else{
-                buttonPlusMinus.setText("-");
-            }
-        }
-        });
-        if (buttonText.equals("C")) {
-            input.setText("");
-            result.setText("0");
-        }
-        if (!solutionText.equals("-")){
-            buttonPlusMinus.setText("+");
-        }
-        else if (solutionText.equals("-")){
-            buttonPlusMinus.setText("-");
-        }
+//        buttonAC = findViewById(R.id.buttonAC);
+//        buttonPlusMinus = findViewById(R.id.buttonPlusMinus);
+//        buttonAC.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//
+//            public void onClick(View v) {
+//                buttonAC.setText("C");
+//            }
+//        });
+//        buttonPlusMinus.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//
+//            public void onClick(View v) {
+//                if (solutionText.equals("-")){
+//                    buttonPlusMinus.setText("+");
+//                }
+//                else{
+//                buttonPlusMinus.setText("-");
+//            }
+//        }
+//        });
+//        if (buttonText.equals("C")) {
+//            input.setText("");
+//            result.setText("0");
+//        }
+//        if (!solutionText.equals("-")){
+//            buttonPlusMinus.setText("+");
+//        }
+//        else if (solutionText.equals("-")){
+//            buttonPlusMinus.setText("-");
+//        }
         if (!solutionText.equals("0")){
             buttonAC.setText("C");
         }
