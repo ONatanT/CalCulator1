@@ -19,7 +19,7 @@
             android:layout_width="183dp"
             android:layout_height="133dp"
             android:layout_above="@id/textViewResult"
-            android:layout_margin="16dp"
+            android:layout_margin="30dp"
             android:textSize="40dp" />
 
         <TextView

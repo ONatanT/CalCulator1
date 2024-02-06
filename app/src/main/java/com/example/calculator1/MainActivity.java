@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     int num1;
     int num2;
     char ch;
-
+    Button myButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
@@ -24,6 +24,15 @@ public class MainActivity extends AppCompatActivity {
         solution = findViewById(R.id.textViewSolution);
 
         result = findViewById(R.id.textViewResult);
+        myButton = findViewById(R.id.buttonAC); // replace with your button's id
+
+        myButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+
+            public void onClick(View v) {
+                myButton.setText("C");
+            }
+        });
         //System.out.println("Hey im Here"+result);
     }
 
@@ -48,8 +57,8 @@ public class MainActivity extends AppCompatActivity {
 
         solution.setText(dataToCalculate);
         result.append("");
-        //String str = getResult(dataToCalculate);
-
+//        String str = getResult(dataToCalculate);
+//        result.setText(str);
     }
 
 
@@ -72,3 +81,4 @@ public class MainActivity extends AppCompatActivity {
     // 5. Perform the operation
     // 6. Display the result on the screen (TextView)
 }
+
