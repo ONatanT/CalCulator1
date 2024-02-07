@@ -7,9 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView display;
+//    private Button buttonAC = findViewById(R.id.buttonAC);
     private String firstOperand = "";
     private String secondOperand = "";
     private String currentOperator = "";
@@ -20,6 +22,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         display = findViewById((R.id.textViewSolution));
     }
+    public void onNumberClick(View view){
+        Button button = (Button) view;
+        String currentDisplay = display.getText().toString();
+        Button buttonAC = findViewById(R.id.buttonAC);
+        buttonAC.setText("C");
+        display.setText(currentDisplay + button.getText().toString());
+    }
+    public void onOperatorClick(View view){
+        Button button =(Button) view;
+        firstOperand = display.getText().toString();
+        currentOperator = button.getText().toString();
+        display.setText("");
+    }
 
     public void onDotClick(View view){
         String currentDisplay = display.getText().toString();
@@ -29,26 +44,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onSubtractClick(View view){
+        Button buttonSubtract = (Button) view;
+        buttonSubtract = findViewById(R.id.buttonSubtract);
+        display.setText(firstOperand);
+
         String currentDisplay = display.getText().toString();
         if(currentDisplay.isEmpty()){
             display.setText("-");
         }
     }
 
-    public void onNumberClick(View view){
-        Button button = (Button) view;
-        String currentDisplay = display.getText().toString();
-        display.setText(currentDisplay + button.getText().toString());
-    }
-
-    public void onOperatorClick(View view){
-        Button button =(Button) view;
-        firstOperand = display.getText().toString();
-        currentOperator = button.getText().toString();
-        display.setText("");
-    }
-
     public void onAcClick(View view){
+        Button buttonAC = (Button) view;
+        if (buttonAC.getText().toString().equals("C")){
+            display.setText("");
+            buttonAC.setText("AC");
+        }
         display.setText("");
         firstOperand = "";
         secondOperand = "";
@@ -62,27 +73,42 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private double calculateResult(){
+        System.out.println("FirstOperand " + firstOperand);
+        System.out.println("SecondOperand " + secondOperand);
+
         double num1 = Double.parseDouble(firstOperand);
         double num2 = Double.parseDouble(secondOperand);
+        System.out.println("num2: " + num2);
         double result = 0;
-        switch (currentOperator){
-            case "+":
-                result = num1 + num2;
-                break;
-            case "-":
-                result = num1 - num2;
-                break;
-            case "x":
-                result = num1 * num2;
-                break;
-            case "/":
-                result = num1 / num2;
-                break;
-            case "%":
-                result = num1 % num2;
-                break;
+        try {
+            switch (currentOperator) {
+                case "+":
+                    result = num1 + num2;
+                    break;
+                case "-":
+                    result = num1 - num2;
+                    break;
+                case "x":
+                    result = num1 * num2;
+                    break;
+                case "/": {
+                    if (num2 == 0){
+                        throw new ArithmeticException("Cannot divide by zero");
+                    } else {
+                        result = num1 / num2;
+                        break;
+                    }
+                }
+                case "%":
+                    result = num1 % num2;
+                    break;
+            }
+            return result;
         }
-        return result;
+        catch (ArithmeticException e){
+            display.setText(e.getMessage());
+        }
+         return 0;
     }
 }
 

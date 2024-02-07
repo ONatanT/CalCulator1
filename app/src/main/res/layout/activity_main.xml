@@ -20,6 +20,7 @@
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:layout_marginLeft="10dp"
+            android:text=""
             android:textSize="40dp" />
 
 
@@ -44,7 +45,7 @@
             android:textSize="30dp" />
 
         <Button
-            android:id="@+id/buttonPlusMinus"
+            android:id="@+id/buttonSubtract"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
