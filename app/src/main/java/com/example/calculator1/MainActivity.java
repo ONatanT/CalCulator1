@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView display;
@@ -20,6 +21,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         display = findViewById((R.id.textViewSolution));
     }
+    public void onNumberClick(View view){
+        Button button = (Button) view;
+        String currentDisplay = display.getText().toString();
+        Button buttonAC = findViewById(R.id.buttonAC);
+        buttonAC.setText("C");
+        display.setText(currentDisplay + button.getText().toString());
+    }
+    public void onOperatorClick(View view){
+        Button button =(Button) view;
+        Button buttonSubtract = findViewById(R.id.buttonSubtract);
+        buttonSubtract.setText("±");
+        firstOperand = display.getText().toString();
+        currentOperator = button.getText().toString();
+        display.setText("");
+    }
 
     public void onDotClick(View view){
         String currentDisplay = display.getText().toString();
@@ -27,28 +43,44 @@ public class MainActivity extends AppCompatActivity {
             display.setText(currentDisplay + ".");
         }
     }
-
-    public void onSubtractClick(View view){
-        String currentDisplay = display.getText().toString();
-        if(currentDisplay.isEmpty()){
-            display.setText("-");
+    public String formatNumber(double num) {
+        if (num == Math.floor(num)) {
+            return String.format("%.0f", num);
+        } else {
+            return String.valueOf(num);
         }
     }
 
-    public void onNumberClick(View view){
-        Button button = (Button) view;
-        String currentDisplay = display.getText().toString();
-        display.setText(currentDisplay + button.getText().toString());
-    }
+    public void onSubtractClick(View view){
+        Button buttonSubtract = (Button) view;
+        buttonSubtract = findViewById(R.id.buttonSubtract);
 
-    public void onOperatorClick(View view){
-        Button button =(Button) view;
-        firstOperand = display.getText().toString();
-        currentOperator = button.getText().toString();
-        display.setText("");
+        double num = Double.parseDouble(display.getText().toString());
+        num *= -1;
+        display.setText(formatNumber(num));
+
+        switch (buttonSubtract.getText().toString()) {
+            case ("±"):
+                buttonSubtract.setText("+");
+                break;
+            case "+":
+                buttonSubtract.setText("-");
+                break;
+            case "-":
+                buttonSubtract.setText("+");
+                break;
+        }
+
     }
 
     public void onAcClick(View view){
+        Button buttonAC = (Button) view;
+        Button buttonSubtract = findViewById(R.id.buttonSubtract);
+        buttonSubtract.setText("±");
+        if (buttonAC.getText().toString().equals("C")){
+            display.setText("");
+            buttonAC.setText("AC");
+        }
         display.setText("");
         firstOperand = "";
         secondOperand = "";
@@ -58,31 +90,44 @@ public class MainActivity extends AppCompatActivity {
     public void onEqualClick(View view){
         secondOperand = display.getText().toString();
         double result = calculateResult();
-        display.setText(String.valueOf(result));
+        display.setText(formatNumber(result));
     }
 
     private double calculateResult(){
         double num1 = Double.parseDouble(firstOperand);
         double num2 = Double.parseDouble(secondOperand);
         double result = 0;
-        switch (currentOperator){
-            case "+":
-                result = num1 + num2;
-                break;
-            case "-":
-                result = num1 - num2;
-                break;
-            case "x":
-                result = num1 * num2;
-                break;
-            case "/":
-                result = num1 / num2;
-                break;
-            case "%":
-                result = num1 % num2;
-                break;
+        try {
+            switch (currentOperator) {
+                case "+":
+                    result = num1 + num2;
+                    break;
+                case "-":
+                    result = num1 - num2;
+                    break;
+                case "x":
+                    result = num1 * num2;
+                    break;
+                case "/":
+                    if (num2 == 0) {
+                        throw new ArithmeticException("Cannot divide by zero");
+                    }else
+                        result = num1 / num2;
+                    break;
+                case "%":
+                    result = num1 % num2;
+                    break;
+                default:
+                    throw new IllegalArgumentException("Invalid operator" + currentOperator);
+            }
+            return result;
         }
-        return result;
+        catch (ArithmeticException | IllegalArgumentException e) {
+            display.setText(e.getMessage());
+
+        }
+        return 0;
+
     }
 }
 
