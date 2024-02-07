@@ -11,7 +11,6 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private TextView display;
-//    private Button buttonAC = findViewById(R.id.buttonAC);
     private String firstOperand = "";
     private String secondOperand = "";
     private String currentOperator = "";
@@ -91,16 +90,12 @@ public class MainActivity extends AppCompatActivity {
     public void onEqualClick(View view){
         secondOperand = display.getText().toString();
         double result = calculateResult();
-        display.setText(String.valueOf(result));
+        display.setText(formatNumber(result));
     }
 
     private double calculateResult(){
-        System.out.println("FirstOperand " + firstOperand);
-        System.out.println("SecondOperand " + secondOperand);
-
         double num1 = Double.parseDouble(firstOperand);
         double num2 = Double.parseDouble(secondOperand);
-        System.out.println("num2: " + num2);
         double result = 0;
         try {
             switch (currentOperator) {
@@ -113,24 +108,26 @@ public class MainActivity extends AppCompatActivity {
                 case "x":
                     result = num1 * num2;
                     break;
-                case "/": {
-                    if (num2 == 0){
+                case "/":
+                    if (num2 == 0) {
                         throw new ArithmeticException("Cannot divide by zero");
-                    } else {
+                    }else
                         result = num1 / num2;
-                        break;
-                    }
-                }
+                    break;
                 case "%":
                     result = num1 % num2;
                     break;
+                default:
+                    throw new IllegalArgumentException("Invalid operator" + currentOperator);
             }
             return result;
         }
-        catch (ArithmeticException e){
+        catch (ArithmeticException | IllegalArgumentException e) {
             display.setText(e.getMessage());
+
         }
-         return 0;
+        return 0;
+
     }
 }
 
