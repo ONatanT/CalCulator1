@@ -9,16 +9,10 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-//    private TextView result, input,
     private TextView display;
-
-//    private Button[] numberButtons;
-//    private Button buttonAC, buttonPlusMinus, buttonPrecent, buttonPlus, buttonMinus, buttonMultiply, buttonDivide, buttonEqual;
     private String firstOperand = "";
     private String secondOperand = "";
     private String currentOperator = "";
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
