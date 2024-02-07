@@ -9,22 +9,30 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-//    private TextView result, input,
     private TextView display;
-
-//    private Button[] numberButtons;
-//    private Button buttonAC, buttonPlusMinus, buttonPrecent, buttonPlus, buttonMinus, buttonMultiply, buttonDivide, buttonEqual;
     private String firstOperand = "";
     private String secondOperand = "";
     private String currentOperator = "";
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
         super.onCreate(savedInstanceState);
         display = findViewById((R.id.textViewSolution));
+    }
+
+    public void onDotClick(View view){
+        String currentDisplay = display.getText().toString();
+        if(!currentDisplay.contains(".")){
+            display.setText(currentDisplay + ".");
+        }
+    }
+
+    public void onSubtractClick(View view){
+        String currentDisplay = display.getText().toString();
+        if(currentDisplay.isEmpty()){
+            display.setText("-");
+        }
     }
 
     public void onNumberClick(View view){
@@ -69,9 +77,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case "/":
                 result = num1 / num2;
-                break;
-            case "±":
-                result = num1 * -1;
                 break;
             case "%":
                 result = num1 % num2;
