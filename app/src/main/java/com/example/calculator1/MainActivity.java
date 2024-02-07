@@ -21,6 +21,20 @@ public class MainActivity extends AppCompatActivity {
         display = findViewById((R.id.textViewSolution));
     }
 
+    public void onDotClick(View view){
+        String currentDisplay = display.getText().toString();
+        if(!currentDisplay.contains(".")){
+            display.setText(currentDisplay + ".");
+        }
+    }
+
+    public void onSubtractClick(View view){
+        String currentDisplay = display.getText().toString();
+        if(currentDisplay.isEmpty()){
+            display.setText("-");
+        }
+    }
+
     public void onNumberClick(View view){
         Button button = (Button) view;
         String currentDisplay = display.getText().toString();
@@ -63,9 +77,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case "/":
                 result = num1 / num2;
-                break;
-            case "±":
-                result = num1 * -1;
                 break;
             case "%":
                 result = num1 % num2;
