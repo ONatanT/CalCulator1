@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     }
     public void onOperatorClick(View view){
         Button button =(Button) view;
+        Button buttonSubtract = findViewById(R.id.buttonSubtract);
+        buttonSubtract.setText("±");
         firstOperand = display.getText().toString();
         currentOperator = button.getText().toString();
         display.setText("");
@@ -46,16 +48,72 @@ public class MainActivity extends AppCompatActivity {
     public void onSubtractClick(View view){
         Button buttonSubtract = (Button) view;
         buttonSubtract = findViewById(R.id.buttonSubtract);
-        display.setText(firstOperand);
+//        String currentDisplay = display.getText().toString();
+//        if (buttonSubtract.getText().toString().equals("±")) {
+//            buttonSubtract.setText("-");
+//            display.setText(buttonSubtract + currentDisplay);
+//        }
+
+        double num = Double.parseDouble(display.getText().toString());
+
 
         String currentDisplay = display.getText().toString();
-        if(currentDisplay.isEmpty()){
-            display.setText("-");
+        switch (buttonSubtract.getText().toString()){
+            case "±":
+                buttonSubtract.setText("+");
+//                display.setText(buttonSubtract.getText().toString() + currentDisplay);
+                if(secondOperand.isEmpty() && firstOperand.isEmpty()){
+                    display.setText(num * -1 + currentDisplay);
+                }else if (secondOperand.isEmpty() && !firstOperand.isEmpty()){
+                    display.setText(buttonSubtract.getText().toString() +firstOperand);
+                }
+                else{
+                    display.setText(buttonSubtract.getText().toString() +secondOperand);
+                }
+                buttonSubtract.setText("+");
+                break;
+            case "+":
+                display.setText(buttonSubtract + currentDisplay);
+                if(secondOperand.isEmpty() && firstOperand.isEmpty()){
+                    display.setText(buttonSubtract.getText().toString()  + currentDisplay);
+                }else if (secondOperand.isEmpty() && !firstOperand.isEmpty()){
+                    display.setText(buttonSubtract.getText().toString() +firstOperand);
+                }
+                else{
+                    display.setText(buttonSubtract.getText().toString() +secondOperand);
+                }
+                buttonSubtract.setText("-");
+                break;
+            case "-":
+                if(secondOperand.isEmpty() && firstOperand.isEmpty()){
+                    display.setText(buttonSubtract.getText().toString()  + currentDisplay);
+                }else if (secondOperand.isEmpty() && !firstOperand.isEmpty()){
+                    display.setText(buttonSubtract.getText().toString() +firstOperand);
+                }
+                else{
+                    display.setText(buttonSubtract.getText().toString() +secondOperand);
+                }
+                buttonSubtract.setText("+");
+                break;
         }
+//        String currentDisplay = display.getText().toString();
+//        if(secondOperand.isEmpty() && firstOperand.isEmpty()){
+//            display.setText("-" + currentDisplay);
+//            return;
+//        }else if (secondOperand.isEmpty() && !firstOperand.isEmpty()){
+//            display.setText(""+firstOperand);
+//            return;
+//        }
+//        else{
+//            display.setText(""+secondOperand);
+//            return;
+//        }
     }
 
     public void onAcClick(View view){
         Button buttonAC = (Button) view;
+        Button buttonSubtract = findViewById(R.id.buttonSubtract);
+        buttonSubtract.setText("±");
         if (buttonAC.getText().toString().equals("C")){
             display.setText("");
             buttonAC.setText("AC");
